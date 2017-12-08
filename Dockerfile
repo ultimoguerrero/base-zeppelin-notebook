@@ -1,4 +1,4 @@
-FROM sporadic/base-docker-spark:latest
+FROM sporadic/base-docker-spark:0.0.1
 
 # SciPy
 RUN set -ex \
@@ -60,7 +60,8 @@ RUN set -ex \
  && rm -rf /root/.cache/bower \
  && rm -rf /tmp/*
 
-RUN ln -s /usr/bin/pip3 /usr/bin/pip \
+RUN ln -s /usr/bin/pip3 /usr/bin/pip
+RUN rm -rf /usr/bin/python \
  && ln -s /usr/bin/python3 /usr/bin/python
 
 ADD about.json $ZEPPELIN_NOTEBOOK_DIR/2BTRWA9EV/note.json
